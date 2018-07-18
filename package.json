@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev":"node_modules/.bin/webpack-dev-server",
-    "dist":"node_modules/.bin/webpack -p"
+    "dev": "node_modules/.bin/webpack-dev-server",
+    "dist": "node_modules/.bin/webpack -p"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -26,6 +26,7 @@
   "dependencies": {
     "font-awesome": "^4.7.0",
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-router-dom": "^4.3.1"
   }
 }
