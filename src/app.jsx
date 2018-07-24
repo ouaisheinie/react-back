@@ -4,43 +4,51 @@ import {BrowserRouter as Router,Route,Link,Switch} from 'react-router-dom';
 
 class A extends Component{
   constructor(props) {
-    super(props)
+    super(props);
+    
   }
   render(){
     return (
       <div>
-        Component A
+        ComponentA
         <Switch>
+          {/* 不带参数的 */}
           <Route exact path={`${this.props.match.path}`} 
           render={(route)=>{
-            return <div>当前组建是不带参数的A</div>
+            return <div>当前组件是不带参数A</div>
           }}/>
-          <Route exact path={`${this.props.match.path}/sub`} 
+          {/* 带路径的 */}
+          <Route path={`${this.props.match.path}/sub`} 
           render={(route)=>{
-            return <div>当前组建是sub</div>
+            return <div>当前组件是sub</div>
           }}/>
-          <Route exact path={`${this.props.match.path}/:id`} 
+          {/* 带参数的 */}
+          <Route path={`${this.props.match.path}/:id`} 
           render={(route)=>{
-            return <div>当前组建是带参数的A,参数是:{route.match.params.id}</div>
+            return <div>当前组件是带参数A,参数是:{route.match.params.id}</div>
           }}/>
         </Switch>
       </div>
     )
   }
 }
+
 class B extends Component{
   constructor(props) {
-    super(props)
+    super(props);
+    
   }
   render(){
     return (
-      <div>Component B</div>
+      <div>ComponentB</div>
     )
   }
 }
+
 class Wrapper extends Component{
   constructor(props) {
-    super(props)
+    super(props);
+    
   }
   render(){
     return (
