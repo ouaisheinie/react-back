@@ -1,7 +1,7 @@
 import React, {Component}from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router,Route,Link,Switch,Redirect} from 'react-router-dom';
-// 页面
+// 网页
 import Home from 'page/home/index.jsx';
 import Login from 'page/login/index.jsx';
 import Layout from "component/layout/index.jsx";
