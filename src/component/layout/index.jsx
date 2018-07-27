@@ -11,6 +11,7 @@ class Layout extends Component{
     return (
       <div id="wrapper">
         <NavTop />
+        {/* 并不是通过Route引用的 所以NavTop不能继承Route的history对象 */}
         <NavSide />
         {this.props.children}
       </div>
