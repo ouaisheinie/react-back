@@ -1,5 +1,6 @@
-//工具类文件
+//通用工具类文件
 class MUtil{
+  //请求
   request(param){
     return new Promise((resolve,reject)=>{
       $.ajax({
@@ -7,7 +8,7 @@ class MUtil{
         url:param.url || '',
         dataType:param.dataType || 'json',
         data:param.data || null,
-        success(res){
+        success:res=>{
           if(res.status === 0 ){
             //请求成功
             typeof resolve === 'function' && resolve(res.data,res.msg);
@@ -16,11 +17,11 @@ class MUtil{
             this.doLogin();
           }else{
             //错误
-            typeof reject === "function" || reject(res.msg || res.data);
+            typeof reject === "function" && reject(res.msg || res.data);
           }
         },
         error(err){
-          typeof reject === "function" || reject(err.statusText);
+          typeof reject === "function" && reject(err.statusText);
         }
       });
     })
@@ -42,6 +43,30 @@ class MUtil{
   //错误提示
   errorTips(errMsg){
     alert(errMsg || '好像哪里不对');
+  }
+  //存本地缓存的
+  setStorage(name,data){
+    let dataType = typeof data;
+    if(dataType === 'object'){//JSON类型
+      window.localStorage.setItem(name,JSON.stringify(data));
+    }else if(['number','string','boolean'].indexOf(dataType) >= 0){//基础类型
+      window.localStorage.setItem(name,data);
+    }else{
+      alert("该类型不能用于本地存储");
+    }
+  }
+  //获取本地存储内容
+  getStorage(name){
+    let data = window.localStorage.getItem(name);
+    if(data){
+      return JSON.parse(data);
+    }else{
+      return '';
+    }
+  }
+  //删除本地存储
+  removeStorage(name){
+    window.localStorage.removeItem(name);
   }
 }
 

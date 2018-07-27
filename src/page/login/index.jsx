@@ -34,6 +34,7 @@ class Login extends Component{
     checkResult = _user.checkLoginInfo(loginInfo);
     if(checkResult.status){ //验证通过
       _user.login(loginInfo).then((res)=>{
+        _mm.setStorage('userInfo',res);
         this.props.history.push(this.state.redirect);
       },(errMsg)=>{
         _mm.errorTips(errMsg);

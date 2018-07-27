@@ -1,4 +1,4 @@
-//逻辑类文件
+//用户 逻辑类文件
 import MUtil from 'util/mm.jsx';
 const _mm = new MUtil();
 class User{
@@ -32,6 +32,22 @@ class User{
       status:true,
       msg:'验证通过!'
     }
+  }
+  //退出登录
+  logout(){
+    return _mm.request({
+      type:'post',
+      url:'/user/logout.do'
+    })
+  }
+  getUserList(pageNum){
+    return _mm.request({
+      type:"post",
+      url:"/manage/user/list.do",
+      data:{
+        pageNum
+      }
+    })
   }
 }
 
