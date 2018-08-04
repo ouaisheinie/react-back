@@ -42,6 +42,7 @@ class Product{
 /* 
   品类相关
  */
+// 根据父品类Id获取品类列表
   getCategoryList(parentCategoryId){
     return _mm.request({
       type:'post',
@@ -51,7 +52,22 @@ class Product{
       }
     })
   }
-
+//新增 || 保存 品类
+  saveCategory(category){
+    return _mm.request({
+      type:'post',
+      url:'/manage/category/add_category.do',
+      data:category
+    });
+  }
+//修改品类名称
+  updateCategoryName(category){
+    return _mm.request({
+      type:'post',
+      url:'/manage/category/set_category_name.do',
+      data:category
+    });
+  }
 // 检查表单数据
   checkProduct(product){
     let result = {
@@ -103,6 +119,7 @@ class Product{
       data:product
     });
   }
+  
 }
 
 export default Product;
